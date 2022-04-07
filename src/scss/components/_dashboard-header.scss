@@ -1,0 +1,154 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+@use "../base/typography";
+
+.dashboard {
+  width: calc(100vw - 280px);
+  margin-left: auto;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  position: fixed;
+
+  @include m.respond(phone-wide) {
+    width: auto;
+    padding-top: 4rem;
+  }
+  &-column {
+    display: flex;
+    height: 4.5rem;
+    align-items: center;
+    padding: 0 18px;
+    border-bottom: 1px solid c.color(border);
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    @include m.respond(phone-wide) {
+      height: auto;
+      padding-top: 0.3rem;
+      margin-right: 4rem;
+    }
+  }
+
+  &__user-icon-div {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-details-div {
+    margin-right: 10px;
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__header {
+      font-size: 14px;
+      color: #000921;
+    }
+
+    &__role {
+      font-size: 11px;
+      margin-top: 13px;
+      color: #989ca5;
+    }
+  }
+
+  .notification-div {
+    position: relative;
+    margin: 0 40px 0 20px;
+    display: flex;
+    align-items: center;
+
+    &__active-state {
+      position: absolute;
+      top: -18px;
+      right: 8px;
+    }
+  }
+
+  &__header {
+    span {
+      font-size: 19px !important;
+
+      &:nth-child(2) {
+        font-weight: 600;
+      }
+    }
+    @include m.respond(phone-wide) {
+      padding: 0px 30px;
+    }
+  }
+
+  &__left {
+    padding-left: calc(100vw - 50rem);
+    padding-top: 2rem;
+    z-index: 9999;
+
+    svg {
+      width: 0.9rem;
+      fill: c.color(field);
+      stroke: c.color(field);
+
+      &:hover {
+        fill: c.color(primary);
+        stroke: c.color(primary);
+      }
+    }
+  }
+
+  &__right {
+    width: 10rem;
+    position: absolute;
+    margin-left: calc(100vw - 30rem);
+
+    @include m.respond(phone-wide) {
+      position: relative;
+    }
+
+    &-tooltip {
+      padding: 5px !important;
+      font-size: 0.7em !important;
+      font-weight: bolder !important;
+    }
+
+    &-circle {
+      width: 35px;
+      border-radius: 50%;
+    }
+
+    &-text-1 {
+      position: absolute;
+      padding-top: 1.5rem;
+      top: 0;
+      left: 0;
+    }
+    &-text-2 {
+      position: absolute;
+      padding-top: 1.8rem;
+      left: 0;
+    }
+    &-text-3 {
+      position: absolute;
+      padding-top: 1.7rem;
+      padding-left: 6.5rem;
+    }
+  }
+
+  &__menu {
+    &-toggler {
+      outline: 0;
+      border: 0;
+      box-shadow: none;
+      min-width: 24px;
+      font-size: 1.09375rem;
+      background-color: transparent;
+      border: 0;
+      border-radius: 0.25rem;
+
+      @include m.respond(tablet-wide, min) {
+        // display: none;
+      }
+    }
+  }
+}

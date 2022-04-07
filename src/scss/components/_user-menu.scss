@@ -1,0 +1,322 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+
+.hide-nav {
+  display: none;
+}
+
+.navbar {
+  background-color: #fff;
+  height: 80px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-bars {
+  margin-left: 12rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-menu {
+  background-color: white;
+  padding-right: 55px;
+  padding-left: 20px;
+  position: fixed;
+  top: 0;
+  // transition: 850ms;
+  z-index: 1001;
+  border-right: 1px solid c.color(border);
+}
+
+.nav-menu.active {
+  // left: 0;
+  // transition: 350ms;
+}
+
+.nav-menu-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 2rem;
+}
+
+.nav-menu_img {
+  @include m.distinctSize(135.82px, auto);
+}
+
+.nav-menu-spacer {
+  padding-top: 3rem;
+}
+
+.nav-text {
+  list-style: none;
+  padding-bottom: 0.8rem;
+  svg {
+    width: 1.2rem;
+  }
+}
+
+.profile-text {
+  padding-top: 1rem;
+  border-top: 1px solid c.color(border);
+
+  svg,
+  path {
+    fill: c.color(grey-300);
+    stroke: c.color(primary);
+  }
+}
+
+.profile-text:hover {
+  svg,
+  path {
+    fill: c.color(primary);
+    stroke: c.color(primary);
+  }
+}
+
+.logout-menu {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nav-text a,
+.nav-logout span {
+  text-decoration: none;
+  color: c.color(grey-300);
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-radius: 8px;
+  height: 44px;
+}
+
+.nav-text a:hover,
+.menu-path a {
+  font-size: 14px;
+  background: c.color(transparent);
+  color: c.color(primary);
+  opacity: 1;
+
+  svg,
+  path {
+    fill: c.color(transparent);
+    stroke: c.color(primary);
+  }
+}
+
+.nav-text a:active,
+.menu-path a:hover {
+  background: c.color(primary);
+  color: c.color(white);
+  svg,
+  path {
+    fill: c.color(white);
+    stroke: c.color(transparent);
+  }
+}
+
+.nav-text a:active,
+.menu-path a {
+  background: c.color(primary);
+  color: c.color(white);
+  cursor: default;
+  svg,
+  path {
+    fill: c.color(white);
+    stroke: c.color(transparent);
+  }
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  background-color: #fff;
+  width: 100%;
+  height: 80px;
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-span {
+  margin-left: 16px;
+}
+.nav-menu ul {
+  height: 100vh;
+  padding: 0.7rem;
+  overflow-y: auto;
+}
+
+.add-user-container {
+  border: 1px dotted c.color(primary);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: c.color(primary);
+    color: #fff;
+  }
+
+  p {
+    font-size: 14px;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.user-item-container {
+  border: 1px solid #e9eaec;
+  height: 200px;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &:hover {
+    border: 1px solid c.color(primary) !important;
+  }
+
+  .badge {
+    font-size: 9px;
+    font-weight: 500;
+    padding: 7px 10px;
+    width: fit-content;
+    margin: 7px auto 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .admin-role-container {
+    background-color: #f1eef8ed;
+    color: #4f269f;
+  }
+
+  .agent-role-container {
+    background-color: #edf8f8;
+    color: #19a8a8;
+  }
+
+  &__ban {
+    max-width: 15px;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+  }
+
+  &__more {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f1eef8ed;
+      border-radius: 6px;
+    }
+  }
+
+  &__image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 2px solid #ffffff;
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    object-fit: contain;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  &__name {
+    color: #000921;
+    font-size: 14px;
+  }
+
+  &__role {
+    color: #989ca5;
+    font-size: 12.5px;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .menu-bars {
+    margin-left: 0;
+  }
+  .nav-menu {
+    left: -100%;
+  }
+  .nav-menu-spacer {
+    padding-top: 0rem;
+  }
+  .nav-text {
+    padding: 0px 7px 0px 0px;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+  }
+  .nav-menu_logo {
+    display: none !important;
+  }
+
+  .nav-menu {
+    overflow: auto;
+  }
+}
+
+.add-user-element {
+  label {
+    font-size: 13px;
+    color: #666b7a;
+  }
+
+  .react-tag-input__input {
+    height: 45px;
+  }
+
+  .role-select {
+    height: 45px !important;
+    font-size: 14px;
+  }
+}

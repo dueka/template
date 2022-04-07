@@ -1,0 +1,45 @@
+// Noor Coop Colors
+$colors: (
+  // Primary
+  field: #000921,
+  white: #fffffff5,
+  primary: #4f269f,
+  csprimary: #4f269f,
+  primary-100: #4f269f66,
+  primary-200: #f2eef7,
+  primary-300: #06232c,
+  transparent: #4f269f24,
+  title: #94a1a5,
+  secondary: #676c7b,
+  admin: #3375e7,
+  bg-100: #e0ecfc,
+  accent: #fa235d,
+  buttonx: #ffdbe5,
+  round: #000921,
+  border: #e9eaec,
+  // green
+  green: #00dc66,
+  // blue
+  blue: #0c56e3,
+  // Grey
+  grey: #808080,
+  grey-50: #f8f8f9,
+  grey-100: #f1f2f3,
+  grey-200: #666b7a,
+  grey-300: #a1a5ad,
+  grey-400: #676c7b,
+  grey-500: #574759,
+  grey-600: #989ca5,
+  grey-700: #989ca57a,
+  grey-800: #989ca5fb,
+  grey-gap: #707070,
+  grey-border: #70707017
+);
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "unknown `#{$key}` in $colors.";
+  @return null;
+}

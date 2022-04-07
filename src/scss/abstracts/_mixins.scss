@@ -1,0 +1,119 @@
+// Responsive Mixin
+
+$breakpoints: (
+  "phone-smallest": 340px,
+  "phone-small": 365px,
+  "phone": 400px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-8": 850px,
+  "tablet-medium": 992px,
+  "tablet-wide": 1024px,
+  "desktop-small": 1080px,
+  "desktop": 1248px,
+  "desktop-medium": 1360px,
+  "desktop-wide": 1600px,
+  "desktop-ultra-wide": 3000px,
+);
+
+@mixin respond($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type == min {
+      $width: $width + 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Flexbox Mixin
+
+@mixin flex-config(
+  $justify-content: false,
+  $align-items: false,
+  $flex: false,
+  $flex-direction: false
+) {
+  display: flex;
+
+  @if $justify-content {
+    justify-content: $justify-content;
+  }
+
+  @if $flex {
+    flex: $flex;
+  }
+
+  @if $flex-direction {
+    flex-direction: $flex-direction;
+  }
+
+  @if $align-items {
+    align-items: $align-items;
+  }
+}
+
+// Size Mixin
+
+// For equal size dimensions
+@mixin equalSize($size) {
+  width: $size;
+  height: $size;
+}
+
+// Non equal
+@mixin distinctSize($width, $height: auto) {
+  width: $width;
+  height: $height;
+}
+
+// Pseudo Mixins
+@mixin pseudo($display: inline-block, $pos: absolute, $content: "") {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+// Placeholder mixin for form Input
+
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+// Font Mixins
+
+@mixin font($size: false, $weight: false, $lh: false) {
+  @if $size {
+    font-size: $size;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+}
+
+// Border Radius
+
+@mixin radius($radius: 6px) {
+  border-radius: $radius;
+}

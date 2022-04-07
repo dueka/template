@@ -1,0 +1,39 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/shadows' as s;
+
+@mixin radius {
+  border-radius: 5px;
+}
+
+%btn {
+  @include radius;
+  @include m.flex-config(center, center, false, false);
+  cursor: pointer;
+  outline: 0;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0;
+
+  &[disabled] {
+    cursor: none;
+  }
+}
+
+%btn-primary {
+  background-color: c.color(primary);
+  color: c.color(white);
+
+  &[disabled] {
+    background-color: c.color(grey-sub);
+    color: c.color(white);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:not([disabled]) {
+      background-color: c.color(primary-100);
+      box-shadow: s.$box-shadow-200;
+    }
+  }
+}

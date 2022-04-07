@@ -1,0 +1,154 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+@use "../base/typography";
+
+.view-dashboard {
+  width: calc(100vw - 20rem);
+  min-height: 100vh;
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+.view-project {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view-project__left {
+  width: 100%;
+  height: 45rem;
+  overflow-x: scroll;
+}
+
+.view-project-line {
+  border-bottom: 1px solid c.color(grey-border);
+}
+
+.view-project-icon {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  background-color: c.color(primary-200);
+  padding: 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: c.color(primary);
+    color: c.color(white);
+  }
+}
+
+.view-project__column {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-bottom: 0.8rem;
+}
+
+.view-project-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.view-project-category {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: c.color(blue);
+  color: c.color(white);
+  border-radius: 8px;
+  text-align: center;
+  padding: 0.4px 10px;
+  margin-bottom: -1px;
+  outline: 0;
+  align-self: center;
+}
+
+.view-card-btn {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 550;
+  background-color: c.color(primary);
+  padding: 12px 25px;
+  border: none;
+  @include m.radius(6px);
+  box-shadow: 0;
+  margin-right: 4rem;
+  outline: 0;
+  color: c.color(white);
+}
+
+.view-project-img {
+  width: 100%;
+  height: 355px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.view-project-section {
+  text-align: left;
+}
+
+.view-project__right {
+  width: 30rem;
+  height: 45rem;
+  overflow-y: scroll;
+  padding-right: 3.8rem;
+  padding-left: 1.5rem;
+  margin-top: 3rem;
+}
+
+.view-project-card {
+  padding-bottom: 1rem;
+  border: 1px solid c.color(border);
+  border-radius: 8px;
+
+  &-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    margin-left: 6.5rem;
+  }
+
+  &-subHead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -0.5rem;
+  }
+
+  &-subHead1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: -0.5rem;
+  }
+
+  &-body {
+    text-align: center;
+    opacity: 1;
+    line-height: 1.2rem;
+  }
+  &-link {
+    text-align: center;
+  }
+  &-link1 {
+    right: 0;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  &__header {
+    margin-bottom: -0.5rem;
+  }
+
+  &__pad {
+    padding: 0px 12px;
+  }
+}

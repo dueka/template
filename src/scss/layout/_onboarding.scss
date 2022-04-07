@@ -1,0 +1,354 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+.onboarding {
+  @include m.distinctSize(100vw, 100vh);
+  display: flex;
+  @include m.respond("tablet-8") {
+    display: block;
+  }
+
+  &.onboarding-2 {
+    background: transparent url("../../assets/images/2.png") 0% 0% no-repeat
+      padding-box;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  &.onboarding-3 {
+    background: transparent url("../../assets/images/3.png") 0% 0% no-repeat
+      padding-box;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  &__logo {
+    margin-top: 13px;
+    &-container {
+      margin-top: 1.5rem;
+      margin-left: 1.5rem;
+    }
+
+    @include m.distinctSize(149px);
+
+    @include m.respond("tablet-8") {
+      width: 250px;
+    }
+
+    @include m.respond("phone") {
+      padding-top: 1.5rem;
+      width: 30%;
+    }
+
+    @include m.respond("phone-smallest") {
+      width: 180px;
+    }
+  }
+  &__center {
+    flex-basis: 46%;
+    padding-top: 8%;
+    align-items: center;
+    justify-content: center;
+    @include m.respond("desktop-wide", min) {
+      justify-content: unset;
+    }
+
+    @include m.respond("phone") {
+      padding: 1.25rem;
+    }
+
+    &-login {
+      padding-top: 4%;
+      margin-left: 7rem;
+      @include m.respond("phone") {
+        margin-left: 5.9rem;
+      }
+    }
+
+    &__content {
+      width: 400px;
+
+      @include m.respond("desktop-wide", min) {
+        margin-left: 221px;
+        margin-right: auto;
+      }
+
+      @include m.respond("phone-wide") {
+        width: 100%;
+      }
+    }
+
+    &-1 {
+      padding-top: 1.5rem;
+
+      &-text {
+        color: c.color(grey-300);
+      }
+    }
+    &-bottom {
+      padding-top: 2%;
+      margin-left: 14.2rem;
+
+      @include m.respond("phone") {
+        margin-left: 56vw;
+      }
+    }
+  }
+
+  &__login {
+    padding-left: 12rem;
+
+    @include m.respond("tablet-8") {
+      padding-left: 12rem;
+    }
+
+    @include m.respond("phone") {
+      padding-left: 0%;
+    }
+    &-top {
+      @include m.respond("phone") {
+        padding-left: 60%;
+        position: absolute;
+      }
+    }
+
+    &-center {
+      margin-left: -13.8vw;
+    }
+    &-bottom {
+      padding-top: 4.5%;
+      padding-left: 1.2rem;
+
+      @include m.respond("phone") {
+        padding-top: 3.4rem;
+        margin-left: 10vw;
+      }
+      @include m.respond("tablet-8") {
+        padding-left: 48%;
+        width: 100%;
+      }
+    }
+    &-1 {
+      position: absolute;
+      padding-top: 1.5%;
+      margin-left: -1.4vw;
+      @include m.respond("phone") {
+        margin-left: 42vw;
+        padding-top: 5%;
+        width: 100%;
+      }
+    }
+    &-2 {
+      position: absolute;
+      padding-top: 4.5%;
+      margin-left: 0vw;
+      @include m.respond("phone") {
+        margin-left: 42vw;
+        padding-top: 5%;
+        width: 100%;
+      }
+    }
+    &-phone {
+      padding-bottom: 10px;
+    }
+  }
+
+  &__right {
+    position: relative;
+
+    &-text {
+      position: absolute;
+      text-align: right;
+      width: 70%;
+      bottom: 10%;
+      margin: 0;
+      padding: 0% 5% 10% 0%;
+      margin-left: 10rem;
+      &-1 {
+        margin-bottom: 0px !important;
+      }
+      &-2 {
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+      }
+      &-3 {
+        margin-bottom: 0px !important;
+        margin-top: 0px !important;
+      }
+      &-line-1 {
+        border-bottom: 3px solid #00dc66;
+        opacity: 1;
+        width: 3rem;
+        height: 47px;
+        transform: translateY(-2.5rem) translateX(13.7rem) rotate(0deg);
+        position: absolute;
+      }
+      &-line-2 {
+        border-bottom: 3px solid c.color(grey-500);
+        opacity: 1;
+        width: 3rem;
+        height: 47px;
+        transform: translateY(-2.5rem) translateX(17.1rem) rotate(0deg);
+        position: absolute;
+      }
+      &-line-3 {
+        border-bottom: 3px solid c.color(grey-500);
+        opacity: 1;
+        width: 3rem;
+        height: 47px;
+        transform: translateY(-2.5rem) translateX(20.5rem) rotate(0deg);
+        position: absolute;
+      }
+    }
+
+    @include m.respond("desktop") {
+      background-position: center;
+      display: none;
+    }
+
+    @include m.respond("tablet-8") {
+      display: none;
+    }
+
+    @include m.respond("phone") {
+      padding: 1.25rem;
+      display: none;
+    }
+  }
+
+  &__heading {
+    margin-bottom: -5px;
+  }
+
+  &__subheading {
+    margin-bottom: 25px;
+  }
+
+  &__footer {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    bottom: 0;
+    left: 41px;
+    width: 100%;
+    &-text-left {
+      flex-basis: 48%;
+      @include m.respond("phone") {
+        flex-basis: 36%;
+      }
+    }
+    &-text-center {
+      @include m.respond("phone") {
+        display: none;
+      }
+      @include m.respond("tablet-8") {
+        display: none;
+      }
+    }
+    @include m.respond("tablet-8") {
+      left: 25px;
+      justify-content: space-between;
+    }
+
+    @include m.respond("phone") {
+      left: 25px;
+      justify-content: space-between;
+      padding-top: 25px;
+      display: none;
+    }
+  }
+}
+
+.onboarding__container {
+  @include m.distinctSize(100vw, 100vh);
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include m.respond("tablet-8") {
+    display: block;
+  }
+
+  &__content {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-basis: 70%;
+    text-align: center;
+    @include m.respond("phone") {
+      padding: 5rem 0rem 0rem 0rem;
+      margin-left: -35vw;
+
+      h1 {
+        font-size: 35px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      h6 {
+        font-size: 10px;
+      }
+    }
+
+    &-header {
+      margin: 0;
+      @include m.respond("phone") {
+        width: 100%;
+      }
+
+      &-body {
+        margin: 0 auto;
+        padding: 1rem 0;
+        inline-size: 45%;
+        overflow: hidden;
+        @include m.respond("phone") {
+          width: 100%;
+          margin-left: 2rem;
+          // margin-left: -2.5vw;
+        }
+      }
+    }
+    &-center {
+      padding-top: 10%;
+      flex-basis: 70%;
+      text-align: center;
+      align-items: center;
+
+      &-text {
+        font-size: 0.7em;
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    justify-content: flex-end;
+
+    @include m.respond("phone") {
+      justify-content: flex-start;
+      padding: 1rem;
+    }
+    &-text-center {
+      padding-right: 33.5rem;
+
+      @include m.respond("phone") {
+        padding-right: 2rem;
+      }
+    }
+    &-text-right {
+      margin-right: 2rem;
+    }
+  }
+}

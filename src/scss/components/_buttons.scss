@@ -1,0 +1,164 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/shadows' as s;
+
+@mixin radius {
+  border-radius: 5px;
+}
+
+%btn {
+  @include radius;
+  @include m.flex-config(center, center, false, false);
+  cursor: pointer;
+  outline: 0;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0;
+
+  &[disabled] {
+    cursor: none;
+  }
+}
+
+%btn-primary {
+  background-color: c.color(primary);
+  color: c.color(white);
+
+  &[disabled] {
+    background-color: c.color(grey-sub);
+    color: c.color(white);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:not([disabled]) {
+      background-color: c.color(primary-100);
+      box-shadow: s.$box-shadow-200;
+    }
+  }
+}
+
+%btn-white {
+  background-color: c.color(white);
+  color: c.color(primary);
+
+  &[disabled] {
+    background-color: c.color(grey-sub);
+    color: c.color(white);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:not([disabled]) {
+      box-shadow: s.$box-shadow-200;
+    }
+  }
+}
+
+%btn-secondary {
+  background-color: c.color(secondary);
+  color: c.color(white);
+
+  &[disabled] {
+    background-color: c.color(grey-sub);
+    color: c.color(white);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:not([disabled]) {
+      background-color: c.color(secondary-100);
+      box-shadow: s.$box-shadow-200;
+    }
+  }
+}
+
+%btn-sm {
+  @include m.font(14px, 500, 27px);
+}
+
+%btn-md {
+  @include m.font(16px, 500, 27px);
+}
+
+%btn-lg {
+  @include m.font(24px, 500, 700px);
+  font-family: "Google Sans", sans-serif;
+}
+
+.btn {
+  &-white {
+    &-sm {
+      @extend %btn;
+      padding: 4px 39px;
+      @extend %btn-white;
+      @extend %btn-sm;
+    }
+
+    &-md {
+      @extend %btn;
+      padding: 15px 49px;
+      @extend %btn-white;
+      @extend %btn-md;
+    }
+
+    &-lg {
+      padding: 24px 78px;
+      @extend %btn;
+      @extend %btn-white;
+      @extend %btn-lg;
+    }
+  }
+}
+
+.btn {
+  &-primary {
+    &-sm {
+      @extend %btn;
+      padding: 4px 39px;
+      @extend %btn-primary;
+      @extend %btn-sm;
+    }
+
+    &-md {
+      @extend %btn;
+      padding: 15px 49px;
+      @extend %btn-primary;
+      @extend %btn-md;
+    }
+
+    &-lg {
+      padding: 24px 78px;
+      @extend %btn;
+      @extend %btn-primary;
+      @extend %btn-lg;
+    }
+  }
+}
+
+.btn {
+  &-secondary {
+    &-sm {
+      @extend %btn;
+      padding: 4px 39px;
+      @extend %btn-secondary;
+      @extend %btn-sm;
+    }
+
+    &-md {
+      @extend %btn;
+      padding: 15px 49px;
+      @extend %btn-secondary;
+      @extend %btn-md;
+    }
+
+    &-lg {
+      padding: 24px 78px;
+      @extend %btn;
+      @extend %btn-secondary;
+      @extend %btn-lg;
+    }
+  }
+}

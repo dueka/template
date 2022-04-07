@@ -1,0 +1,148 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+@use "../base/typography";
+
+.user-dashboard {
+  width: calc(100vw - 20rem);
+  margin-left: auto;
+  &__center {
+    margin-top: 1rem;
+    border: 1px solid #e9eaec;
+    border-radius: 8px;
+    padding: 35px;
+    width: 82%;
+    height: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    &-row {
+      width: 180px;
+      height: 167px;
+      border: 1px solid c.color(border);
+      border-radius: 8px;
+      position: relative;
+      padding-left: 3.5rem;
+      padding-top: 15px;
+      &-options {
+        position: absolute;
+        background-color: c.color(round);
+        border-radius: 8px;
+        margin-top: 2.2rem;
+        margin-left: 3rem;
+        left: 0;
+        margin-right: 0.4rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        padding-left: 1.5rem;
+        z-index: 10;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      &-dot {
+        color: c.color(secondary);
+        font-size: 30px;
+        position: absolute;
+        padding-left: 8rem;
+      }
+
+      &-icon {
+        position: absolute;
+        svg {
+          width: 6rem;
+        }
+      }
+      &-title {
+        position: absolute;
+        padding-bottom: 2rem;
+        bottom: 0;
+        @include m.respond(phone-wide) {
+          padding-bottom: 6rem;
+        }
+      }
+
+      @include m.respond(phone-wide) {
+        height: auto;
+      }
+    }
+
+    @include m.respond(phone-wide) {
+      margin-right: auto;
+    }
+  }
+
+  @include m.respond(phone-wide) {
+    width: unset;
+    margin-left: auto;
+  }
+}
+.top-column {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 0.1px solid c.color(border);
+
+  &__text {
+    border-right: 0.1px solid c.color(border);
+    height: 25px;
+    padding-left: 1rem;
+
+    &-1 {
+      padding-left: 0.5rem;
+      padding-top: 0.2rem;
+    }
+  }
+
+  &__left {
+    padding-left: calc(100vw - 47.5rem);
+    @include m.respond(phone-wide) {
+      padding-left: 4rem;
+      width: 100%;
+    }
+  }
+
+  &__right {
+    margin-left: 1.5rem;
+    @include m.respond(phone-wide) {
+      width: 100%;
+    }
+    a {
+      text-decoration: none;
+      display: inline-block;
+      padding-left: 8px;
+      padding-right: 8px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    &-arrow {
+      // display: inline-block;
+      // text-decoration: none;
+      // padding-left: 23px;
+      // padding-right: 23px;
+    }
+
+    a:hover {
+      background-color: #ddd;
+      color: white;
+    }
+
+    &-previous {
+      background-color: c.color(primary-200);
+      color: c.color(round);
+    }
+    &-space {
+      padding-left: 0.6rem;
+    }
+    &-next {
+      background-color: c.color(primary-200);
+      color: c.color(round);
+    }
+
+    .round {
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+@use "../abstracts/border" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+
+.input {
+  margin-bottom: 0.5rem;
+  position: relative;
+  width: 350px;
+
+  @include m.respond("phone-wide") {
+    width: 100%;
+  }
+
+  &__field {
+    width: 100%;
+    padding: 6px 30px;
+    background-color: c.color(white);
+    border: 1px solid b.$border-color-200;
+    box-sizing: border-box;
+    @include m.radius;
+    @include m.flex-config(center, center, false, false);
+    outline: 0;
+    @include m.font(16px, 400, 1.6875);
+    color: c.color(grey-300);
+    box-shadow: none;
+    transition: border-color 0.3s, color 0.3s;
+
+    &::placeholder {
+      font-size: 0.8em;
+      color: c.color(grey-300);
+    }
+    @include m.respond(phone-wide) {
+      padding-left: 15px;
+    }
+
+    &:focus {
+      outline: 0;
+      border-color: c.color(primary);
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+
+    &.error {
+      border-color: c.color(accent);
+
+      &::placeholder {
+        color: c.color(accent);
+      }
+    }
+  }
+
+  &__label {
+    font-size: 0.8em;
+    font-weight: bold;
+    line-height: 1.6875;
+    color: c.color(grey-200);
+    display: inline-block;
+    opacity: 1;
+    transition: all 0.3s ease;
+    // pointer-events: none;
+
+    &.moved-up {
+      opacity: 1;
+      font-size: 14px;
+      line-height: 1.9285;
+    }
+
+    &.focused {
+      color: c.color(primary);
+    }
+
+    &.error {
+      color: c.color(accent) !important;
+    }
+  }
+
+  &__error {
+    font-size: 14px;
+    line-height: 0.285;
+    color: c.color(accent);
+  }
+
+  &__eye {
+    position: absolute;
+    right: 20px;
+    top: 42px;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+    color: c.color(grey-300);
+
+    &.close {
+      opacity: 0.2;
+    }
+  }
+}

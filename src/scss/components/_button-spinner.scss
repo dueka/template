@@ -1,0 +1,22 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+
+@keyframes spinnerAnimation {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.button-spinner {
+  display: inline-block;
+  @include m.equalSize(35px);
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: c.color(white);
+  border-radius: 50%;
+  animation: spinnerAnimation 1s ease infinite;
+}

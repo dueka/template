@@ -1,0 +1,224 @@
+@use "../abstracts/border" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/colors" as c;
+@use "../base/typography";
+
+// .agent-project {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.agent-project-line {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  // top: 0;
+  margin-top: -1.5rem;
+  position: fixed;
+  border-bottom: 1px solid c.color(grey-border);
+}
+
+.agent-project-icon {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  background-color: c.color(primary-200);
+  padding: 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: c.color(primary);
+    color: c.color(white);
+  }
+}
+.agent-project__column {
+  display: flex;
+  justify-content: space-between;
+  height: 4.8rem;
+  align-items: center;
+  padding-top: 3rem;
+  background-color: white;
+  top: 0;
+  padding-bottom: 0.8rem;
+}
+
+.agent-project-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.agent-project-switch {
+  color: c.color(primary) !important;
+}
+
+.agent-project-container {
+  width: calc(100vw - 30rem);
+  border: 1px solid #e9eaec;
+  border-radius: 8px;
+  padding-bottom: 3rem;
+  height: auto;
+}
+
+.agent-project-card {
+  &-header {
+    padding-top: 1.2rem;
+    margin-bottom: 1.6rem;
+    margin-left: 1rem;
+    border-bottom: 1px solid c.color(grey-border);
+  }
+
+  &-dot::before {
+    content: "";
+    background: c.color(round);
+    width: 7px;
+    height: 7px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.1rem;
+    border-radius: 50%;
+    position: relative;
+    left: 5px;
+    top: 0;
+    display: inline-block;
+  }
+}
+
+.agent-project-row {
+  display: flex;
+  padding-left: 2rem;
+  align-items: center;
+
+  .wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.agent-project-btn {
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+  padding: 6px 30px !important;
+  text-decoration: none;
+
+  &__modal {
+    width: calc(100vw - 61.5rem);
+    border: 1px solid b.$border-color-200 !important;
+    padding: 6px 30px !important;
+    background-color: white !important;
+    color: black !important;
+    left: auto !important;
+  }
+
+  &__upload {
+    width: 30rem;
+    border: 1px solid b.$border-color-200 !important;
+    padding: 6px 30px !important;
+    background-color: white !important;
+    color: black !important;
+    left: auto !important;
+  }
+
+  &__size {
+    font-weight: 500 !important;
+    font-size: 0.8em !important;
+  }
+
+  &__label {
+    font-size: 0.9em;
+    font-weight: 500 !important;
+    color: c.color(grey-gap);
+  }
+}
+
+.agent-project-btn1 {
+  margin-top: 0.5rem;
+  margin-left: 51rem;
+}
+
+.select_date {
+  display: flex;
+}
+
+.agent-project_dotted-container {
+  padding: 20px 30px;
+}
+
+.agent-project-dotted {
+  border: 2px dotted c.color(grey-800);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 120px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.agent-project__date {
+  width: 5rem !important;
+
+  .input__label {
+    font-size: 0.9em;
+    font-weight: 500 !important;
+  }
+}
+.agent-project__label {
+  width: 30rem !important;
+
+  .input__label {
+    font-size: 0.9em;
+    font-weight: 500 !important;
+  }
+}
+
+.agent-project__field {
+  width: 30rem !important;
+
+  .input__label {
+    font-size: 0.9em;
+    font-weight: 500 !important;
+  }
+}
+
+// .special-label {
+//   display: none;
+// }
+
+.agent-project__modal {
+  width: calc(100vw - 61.5rem) !important;
+  .input__label {
+    font-size: 0.9em;
+    font-weight: 500 !important;
+  }
+}
+
+.agent-project__select {
+  width: 10rem !important;
+}
+
+.agent-project__textarea {
+  width: 61rem !important;
+  .input__label {
+    font-size: 0.9em;
+    font-weight: 500 !important;
+  }
+}
+
+.form-switch .form-check-input {
+  width: 2.7em !important;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  margin-top: -0rem;
+}
+
+.form-check-input:checked {
+  background-color: c.color(primary) !important;
+  border-color: c.color(primary) !important;
+}
+
+.form-check-input:focus {
+  border-color: c.color(primary) !important;
+  box-shadow: 0 !important;
+}

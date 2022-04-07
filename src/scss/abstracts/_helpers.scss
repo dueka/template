@@ -1,0 +1,13 @@
+@use './colors' as c;
+
+// Color and Background classnames generator
+
+@each $i in c.$colors {
+  .text-#{"" + nth($i, 1)} {
+    color: nth($i, 2);
+  }
+
+  .bg-#{"" + nth($i, 1)} {
+    background-color: nth($i, 2);
+  }
+}
